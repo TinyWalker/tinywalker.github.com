@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://Albert0010.github.io/atom.xml" rel="self"/>
   <link href="http://Albert0010.github.io/"/>
-  <updated>2013-08-13T20:38:05+08:00</updated>
+  <updated>2013-08-13T20:42:33+08:00</updated>
   <id>http://Albert0010.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -27,8 +27,10 @@
 
 
 
-<script charset=”Shift_JIS” src=”http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js”></script>
+<script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script>
 
+
+<p></p>
 ]]></content>
   </entry>
   
