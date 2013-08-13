@@ -1,12 +1,10 @@
 ---
 layout: post
-title: "title"
+title: "过滤器设计"
 date: 2013-08-13 20:04
 comments: true
 categories: 
 ---
-
-#过滤器设计
 
 >高层模块不应该依赖于低层模块。二者都应该依赖于抽象。抽象不应该依赖于细节。细节应该依赖于抽象。
 
