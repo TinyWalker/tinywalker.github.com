@@ -1,10 +1,9 @@
 ---
 layout: post
-title: "title"
+title: "即时标记"
 date: 2013-08-16 14:13
 comments: true
 categories: 
 ---
 
----
-test
+
