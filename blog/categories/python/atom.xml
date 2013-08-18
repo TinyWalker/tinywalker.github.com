@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Python | Albert Blog]]></title>
+  <link href="http://Albert0010.github.io/blog/categories/python/atom.xml" rel="self"/>
+  <link href="http://Albert0010.github.io/"/>
+  <updated>2013-08-18T16:18:37+08:00</updated>
+  <id>http://Albert0010.github.io/</id>
+  <author>
+    <name><![CDATA[Albert]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[即时标记]]></title>
+    <link href="http://Albert0010.github.io/blog/2013/08/16/title/"/>
+    <updated>2013-08-16T14:13:00+08:00</updated>
+    <id>http://Albert0010.github.io/blog/2013/08/16/title</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+</feed>
