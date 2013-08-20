@@ -3,7 +3,7 @@ layout: post
 title: "即时标记"
 date: 2013-08-16 14:13
 comments: true
-categories: 
+categories: [Python]
 ---
 
 
