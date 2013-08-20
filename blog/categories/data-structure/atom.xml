@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Data Structure | Albert Blog]]></title>
   <link href="http://Albert0010.github.io/blog/categories/data-structure/atom.xml" rel="self"/>
   <link href="http://Albert0010.github.io/"/>
-  <updated>2013-08-18T16:18:37+08:00</updated>
+  <updated>2013-08-20T12:27:14+08:00</updated>
   <id>http://Albert0010.github.io/</id>
   <author>
     <name><![CDATA[Albert]]></name>
@@ -43,10 +43,120 @@
 
 <blockquote><p>前序，中序和后序遍历中的序强调的是根结点的访问顺序，如果首先访问根结点，然后访问左子树，最后访问右子树，则称为前序遍历。其他类似。 另外还有按层访问的遍历方法等</p></blockquote>
 
-<h1><font color = green size = 7 face = "@幼圆"><marquee bgcolor=#ccff99 behavior = alternate>持续更新中^o^</marquee> </font></h1>
+<p>好吧，这几天一直在修改线索二叉树的代码，大脑都有些转不过来了。。。今天偷偷懒，写写博客休息下。。。</p>
 
+<p>基本二叉树的相关代码</p>
 
+<p>```c</p>
 
+<h1>include &lt;stdio.h></h1>
+
+<h1>include &lt;unistd.h></h1>
+
+<h1>include &lt;stdlib.h></h1>
+
+<p>typedef char TElemType;</p>
+
+<p>typedef struct BiTNode
+{</p>
+
+<pre><code>TElemType data;
+struct BiTNode * lchild, * rchild;
+</code></pre>
+
+<p>}BiTNode, *PBiTree;</p>
+
+<p>void PreOrderTraverse(PBiTree );
+void InOrderTraverse(PBiTree );
+void PostOrderTraverse(PBiTree);
+void CreateBiTree(PBiTree *);</p>
+
+<p>int
+main(void)
+{</p>
+
+<pre><code>PBiTree T;
+CreateBiTree(&amp;T);
+
+printf("\nPerOrderTraverse : \n");
+PreOrderTraverse(T);
+printf("\nInOrderTraverse : \n");
+InOrderTraverse(T);
+printf("\nPostOrderTraverse : \n");
+PostOrderTraverse(T);
+printf("\n");
+return 0;
+</code></pre>
+
+<p>}</p>
+
+<p>void CreateBiTree(PBiTree *T){</p>
+
+<pre><code>TElemType ch;
+int num = scanf("%c", &amp;ch);
+
+if( '#' == ch ){ 
+     *T = NULL;
+     return ;
+}
+else{
+     *T = (PBiTree) malloc(sizeof(BiTNode)); 
+
+     if ( !T  ) {
+         return;
+     }
+     (*T)-&gt; data = ch;
+     CreateBiTree (&amp;(*T)-&gt;lchild);
+     CreateBiTree (&amp;(*T)-&gt;rchild);
+}
+</code></pre>
+
+<p>}</p>
+
+<p>void PreOrderTraverse(PBiTree T){</p>
+
+<pre><code>if (NULL == T) return;
+
+printf("%c", T-&gt;data);
+PreOrderTraverse(T-&gt;lchild);
+PreOrderTraverse(T-&gt;rchild);
+</code></pre>
+
+<p>}</p>
+
+<p>void InOrderTraverse(PBiTree T) {</p>
+
+<pre><code>if ( NULL == T ) return;
+
+InOrderTraverse( T-&gt;lchild );
+printf("%c", T-&gt;data);
+InOrderTraverse( T-&gt;rchild );
+</code></pre>
+
+<p>}</p>
+
+<p>void PostOrderTraverse(PBiTree T) {</p>
+
+<pre><code>if (NULL == T) return;
+
+PostOrderTraverse(T-&gt;lchild);
+PostOrderTraverse( T-&gt;rchild );
+printf("%c", T-&gt;data);
+</code></pre>
+
+<p>}
+```
+编译时把所有的警告都打印出来</p>
+
+<h3>any warning is a problem, we must fix it</h3>
+
+<p><code>gcc -Wall -Wextra -Wstrict-prototypes -Wold-style-defination -Wmissing-prototypes -c binary.c -o tree1</code></p>
+
+<h3>在此，笑谈下写代码的感受</h3>
+
+<p><a href="http://www.stackoverflow.com">StackOverflow</a></p>
+
+<p>代码出现问题时这绝对是个helper and tutor， 这次代码总是有问题，于是第一次试着在网站上发问了(<a href="http://stackoverflow.com/questions/18305889/how-to-end-the-binary-tree-when-create-it">qustion link</a>).虽然老早就注册了，但从来没用过&hellip;惊喜的是，不到几分钟就有一位 experienced c programmer给评论了，而且问题稀里哗啦的就解决了，最后还帮我解决了些其他问题. 在此特别感谢<strong>Jonathon Leffler</strong> : <em>Thank you for your help and tutoring!</em></p>
 ]]></content>
   </entry>
   

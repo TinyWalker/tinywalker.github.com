@@ -4,7 +4,7 @@
   <title><![CDATA[Albert Blog]]></title>
   <link href="http://Albert0010.github.io/atom.xml" rel="self"/>
   <link href="http://Albert0010.github.io/"/>
-  <updated>2013-08-18T16:18:37+08:00</updated>
+  <updated>2013-08-20T12:27:14+08:00</updated>
   <id>http://Albert0010.github.io/</id>
   <author>
     <name><![CDATA[Albert]]></name>
@@ -43,10 +43,192 @@
 
 <blockquote><p>前序，中序和后序遍历中的序强调的是根结点的访问顺序，如果首先访问根结点，然后访问左子树，最后访问右子树，则称为前序遍历。其他类似。 另外还有按层访问的遍历方法等</p></blockquote>
 
-<h1><font color = green size = 7 face = "@幼圆"><marquee bgcolor=#ccff99 behavior = alternate>持续更新中^o^</marquee> </font></h1>
+<p>好吧，这几天一直在修改线索二叉树的代码，大脑都有些转不过来了。。。今天偷偷懒，写写博客休息下。。。</p>
+
+<p>基本二叉树的相关代码</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include &lt;stdio.h&gt;</span>
+</span><span class='line'><span class="cp">#include &lt;unistd.h&gt;</span>
+</span><span class='line'><span class="cp">#include &lt;stdlib.h&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="k">typedef</span> <span class="kt">char</span> <span class="n">TElemType</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">typedef</span> <span class="k">struct</span> <span class="n">BiTNode</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="n">TElemType</span> <span class="n">data</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">struct</span> <span class="n">BiTNode</span> <span class="o">*</span> <span class="n">lchild</span><span class="p">,</span> <span class="o">*</span> <span class="n">rchild</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span><span class="n">BiTNode</span><span class="p">,</span> <span class="o">*</span><span class="n">PBiTree</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="nf">PreOrderTraverse</span><span class="p">(</span><span class="n">PBiTree</span> <span class="p">);</span>
+</span><span class='line'><span class="kt">void</span> <span class="nf">InOrderTraverse</span><span class="p">(</span><span class="n">PBiTree</span> <span class="p">);</span>
+</span><span class='line'><span class="kt">void</span> <span class="nf">PostOrderTraverse</span><span class="p">(</span><span class="n">PBiTree</span><span class="p">);</span>
+</span><span class='line'><span class="kt">void</span> <span class="nf">CreateBiTree</span><span class="p">(</span><span class="n">PBiTree</span> <span class="o">*</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span>
+</span><span class='line'><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="n">PBiTree</span> <span class="n">T</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">CreateBiTree</span><span class="p">(</span><span class="o">&amp;</span><span class="n">T</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">PerOrderTraverse : </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">PreOrderTraverse</span><span class="p">(</span><span class="n">T</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">InOrderTraverse : </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">InOrderTraverse</span><span class="p">(</span><span class="n">T</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">PostOrderTraverse : </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">PostOrderTraverse</span><span class="p">(</span><span class="n">T</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="nf">CreateBiTree</span><span class="p">(</span><span class="n">PBiTree</span> <span class="o">*</span><span class="n">T</span><span class="p">){</span>
+</span><span class='line'>    <span class="n">TElemType</span> <span class="n">ch</span><span class="p">;</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ch</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span><span class="p">(</span> <span class="sc">&#39;#&#39;</span> <span class="o">==</span> <span class="n">ch</span> <span class="p">){</span>
+</span><span class='line'>         <span class="o">*</span><span class="n">T</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span><span class='line'>         <span class="k">return</span> <span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">else</span><span class="p">{</span>
+</span><span class='line'>         <span class="o">*</span><span class="n">T</span> <span class="o">=</span> <span class="p">(</span><span class="n">PBiTree</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">BiTNode</span><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'>         <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="n">T</span>  <span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>             <span class="k">return</span><span class="p">;</span>
+</span><span class='line'>         <span class="p">}</span>
+</span><span class='line'>         <span class="p">(</span><span class="o">*</span><span class="n">T</span><span class="p">)</span><span class="o">-&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span>
+</span><span class='line'>         <span class="n">CreateBiTree</span> <span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="o">*</span><span class="n">T</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">);</span>
+</span><span class='line'>         <span class="n">CreateBiTree</span> <span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="o">*</span><span class="n">T</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="nf">PreOrderTraverse</span><span class="p">(</span><span class="n">PBiTree</span> <span class="n">T</span><span class="p">){</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nb">NULL</span> <span class="o">==</span> <span class="n">T</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span> <span class="n">T</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">PreOrderTraverse</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">PreOrderTraverse</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="nf">InOrderTraverse</span><span class="p">(</span><span class="n">PBiTree</span> <span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span> <span class="nb">NULL</span> <span class="o">==</span> <span class="n">T</span> <span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">InOrderTraverse</span><span class="p">(</span> <span class="n">T</span><span class="o">-&gt;</span><span class="n">lchild</span> <span class="p">);</span>
+</span><span class='line'>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span> <span class="n">T</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">InOrderTraverse</span><span class="p">(</span> <span class="n">T</span><span class="o">-&gt;</span><span class="n">rchild</span> <span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="nf">PostOrderTraverse</span><span class="p">(</span><span class="n">PBiTree</span> <span class="n">T</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nb">NULL</span> <span class="o">==</span> <span class="n">T</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">PostOrderTraverse</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">PostOrderTraverse</span><span class="p">(</span> <span class="n">T</span><span class="o">-&gt;</span><span class="n">rchild</span> <span class="p">);</span>
+</span><span class='line'>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span> <span class="n">T</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
+<p>编译时把所有的警告都打印出来</p>
 
+<h3>any warning is a problem, we must fix it</h3>
+
+<p><code>gcc -Wall -Wextra -Wstrict-prototypes -Wold-style-defination -Wmissing-prototypes -c binary.c -o tree1</code></p>
+
+<h3>在此，笑谈下写代码的感受</h3>
+
+<p><a href="http://www.stackoverflow.com">StackOverflow</a></p>
+
+<p>代码出现问题时这绝对是个helper and tutor， 这次代码总是有问题，于是第一次试着在网站上发问了(<a href="http://stackoverflow.com/questions/18305889/how-to-end-the-binary-tree-when-create-it">qustion link</a>).虽然老早就注册了，但从来没用过&hellip;惊喜的是，不到几分钟就有一位 experienced c programmer给评论了，而且问题稀里哗啦的就解决了，最后还帮我解决了些其他问题. 在此特别感谢<strong>Jonathon Leffler</strong> : <em>Thank you for your help and tutoring!</em></p>
 ]]></content>
   </entry>
   
