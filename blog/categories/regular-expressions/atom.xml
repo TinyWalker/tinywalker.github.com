@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Regular Expressions | Albert Blog]]></title>
+  <link href="http://Albert0010.github.io/blog/categories/regular-expressions/atom.xml" rel="self"/>
+  <link href="http://Albert0010.github.io/"/>
+  <updated>2013-08-21T23:18:22+08:00</updated>
+  <id>http://Albert0010.github.io/</id>
+  <author>
+    <name><![CDATA[Albert]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[正则表达式]]></title>
+    <link href="http://Albert0010.github.io/blog/2013/08/21/title/"/>
+    <updated>2013-08-21T13:14:00+08:00</updated>
+    <id>http://Albert0010.github.io/blog/2013/08/21/title</id>
+    <content type="html"><![CDATA[<p>&emsp; 字符是计算机处理文字的最基本单位，在查找文件时，我们一般会使用<strong><em>通配符</em></strong>(wildcard),例如*和?等。和通配符类似，正则表达式也是用来模式匹配的，而且功能更加强大。是模式匹配中，正则表达式可谓是带头大哥。各种语言都有支持，如python的re包，awk等。linux虽然略有不同，但都是源于其基本的原则，改变只是为了和posix兼容罢了。还等什么，快来和这位大哥会晤了。。。。。</p>
+
+<!--more-->
+
+
+<h2>1.元字符</h2>
+
+<p>小编：大哥，我想搜you单词，无奈youself，young&hellip;什么都现身了，怎么解?</p>
+
+<p>大哥：小问题，试一试元字符\byou\b匹配</p>
+
+<p>小编：果断有效，不错</p>
+
+<p>大哥：下面是常用的元字符，记住它，好办事</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>代码</th>
+<th align="center">  解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>.</td>
+<td align="center">匹配除换行以外的所有子符</td>
+</tr>
+<tr>
+<td></td>
+<td>\w</td>
+<td align="center">匹配字母，数字,下划线或汉字</td>
+</tr>
+<tr>
+<td></td>
+<td>\s</td>
+<td align="center">匹配任意空白符</td>
+</tr>
+<tr>
+<td></td>
+<td>\d</td>
+<td align="center">匹配任意数字</td>
+</tr>
+<tr>
+<td></td>
+<td>\b</td>
+<td align="center">匹配单词的开始或结束</td>
+</tr>
+<tr>
+<td></td>
+<td>^</td>
+<td align="center">匹配字符串的开始</td>
+</tr>
+<tr>
+<td></td>
+<td>$</td>
+<td align="center">匹配字符串的结束</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>全角为汉语输入状态，每个字占两个子符
+半角为英文输入状态，每个字母占一个字符</p>
+]]></content>
+  </entry>
+  
+</feed>
