@@ -148,4 +148,4 @@ eg: IP地址匹配： `(2[0-4][0-9]|25[0-5]|[01]?\d\d?\.){3}(2[0-4][0-9]|25[0-5]
 
 在此，向大家推荐一个参考学习网站
 
-[正则表达式30分钟入门教程](deerchao.net/tutorials/regex/regex.htm)
+[正则表达式30分钟入门教程](http://www.deerchao.net/tutorials/regex/regex.htm)
