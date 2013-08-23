@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Regular Expressions | Albert Blog]]></title>
   <link href="http://Albert0010.github.io/blog/categories/regular-expressions/atom.xml" rel="self"/>
   <link href="http://Albert0010.github.io/"/>
-  <updated>2013-08-21T23:33:33+08:00</updated>
+  <updated>2013-08-23T20:29:39+08:00</updated>
   <id>http://Albert0010.github.io/</id>
   <author>
     <name><![CDATA[Albert]]></name>
@@ -27,7 +27,7 @@
 
 <p>小编：大哥，我想搜you单词，无奈youself，young&hellip;什么都现身了，怎么解?</p>
 
-<p>大哥：小问题，试一试元字符\byou\b匹配</p>
+<p>大哥：easy，试一试元字符\byou\b匹配</p>
 
 <p>小编：果断有效，不错</p>
 
@@ -81,8 +81,181 @@
 </table>
 
 
-<p>全角为汉语输入状态，每个字占两个子符
-半角为英文输入状态，每个字母占一个字符</p>
+<h2>2.重复</h2>
+
+<p>&emsp;用过通配符的小伙伴们应该都了解重复这一限定符，所以小编仅仅列出下表：</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>代码</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>*</td>
+<td align="center">重复零次或更多次</td>
+</tr>
+<tr>
+<td></td>
+<td>+</td>
+<td align="center">重复1次或更多次</td>
+</tr>
+<tr>
+<td></td>
+<td>{n}</td>
+<td align="center">重复n次</td>
+</tr>
+<tr>
+<td></td>
+<td>{n,}</td>
+<td align="center">至少重复n次</td>
+</tr>
+<tr>
+<td></td>
+<td>{n，m}</td>
+<td align="center">重复n到m次</td>
+</tr>
+</tbody>
+</table>
+
+
+<p><strong><em>需要使用+或*时，使用转意符\</em></strong></p>
+
+<h2>3.分支条件</h2>
+
+<p>&emsp;分支条件其实就是将几个满足匹配条件的正则表达士通过或的方式放在一起，具体用符号|来表示。<strong>使用分支条件一定要注意分支条件的顺序，匹配时会按从左到右的顺序依次遍历，一但满足条件，就停止匹配</strong></p>
+
+<p>例如：美国邮政编码的规则如下：5位数字或者用连字符连接的9位数字。在进行匹配时，必须采用<code>\d{5}-\d{4}|\d{5}</code>,如果采用<code>\d{5}|\d{5}-\d{4|</code>时，只会匹配5位的邮编号码或者是9位邮编号码的前5位</p>
+
+<h2>4.括号作用</h2>
+
+<h4>小括号()</h4>
+
+<p>&emsp;小括号主要用来分组，以便<strong><em>子表达式</em></strong>（多个字符串)重复,分支选择等</p>
+
+<h4>中括号[]</h4>
+
+<p>&emsp;将不同的字符放在中括号里，匹配其中的一个字符且仅匹配一个字符。其实中括号是分支条件的最小化。<strong>两者都选择其中的一个元素匹配,只是分支条件是多个表达式的集合而中括号是多个字符的集合</strong></p>
+
+<h4>大括号{}</h4>
+
+<p>&emsp;用于重复，见<strong><em>2.重复</em></strong></p>
+
+<p>eg: IP地址匹配： <code>(2[0-4][0-9]|25[0-5]|[01]?\d\d?\.){3}(2[0-4][0-9]|25[0-5]|[01]?\d\d?)</code></p>
+
+<h2>5.反意</h2>
+
+<p>&emsp;有时需要表达“除。。。之外”的意思，就需要反意修饰符。以下列出一些反意的代码</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>代码</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>\W</td>
+<td align="center">匹配除了字母，数字，下划线，汉字之外的字符</td>
+</tr>
+<tr>
+<td></td>
+<td>\D</td>
+<td align="center">匹配除了数字之外的字符</td>
+</tr>
+<tr>
+<td></td>
+<td>\S</td>
+<td align="center">匹配除了空白符之外的字符</td>
+</tr>
+<tr>
+<td></td>
+<td>[^x]</td>
+<td align="center">匹配除了x之外的字符</td>
+</tr>
+<tr>
+<td></td>
+<td>[^abc]</td>
+<td align="center">匹配除了abc之外的字符</td>
+</tr>
+</tbody>
+</table>
+
+
+<h2>6.后向引用</h2>
+
+<p>&emsp;匹配一方面是查找到所需要的东西，另一方面则是使用所查找到的东西。故小编认为后向引用是正则表达式这位大哥最为重要的一部分。如此之重，还是多多学习的为好。。。</p>
+
+<p>&emsp;首先还是列下语法,切勿急切</p>
+
+<table border="2">
+<tr>
+<th>分类</th>
+<th>代码</th>
+<th >解释</th>
+</tr>
+<tr>
+<td rowspan="3">捕获(内容匹配)</td>
+<td>(exp)</td>
+<td>匹配exp，并把获取的内容自动命名到组里</td>
+</tr>
+<tr>
+<td>(?<name>exp)</td>
+<td>匹配exp，并把获取的内容放在name组里，也可以写成(?\`name\`exp)</td>
+</tr>
+<tr>
+<td>(?:exp)</td>
+<td>匹配exp，不获取匹配的内容，也不添加到分组中</td>
+</tr>
+<tr >
+<td rowspan="4">零宽断言(位置匹配)</td>
+<td>(?<=exp)</td>
+<td>匹配exp后边的位置</td>
+</tr>
+<tr>
+<td>(?=exp)</td>
+<td>匹配exp之前的位置</td>
+</tr>
+<td>(?!exp)</td>
+<td>匹配后面跟着不是exp的位置</td>
+</tr>
+<tr>
+<td>(?< !exp)</td>
+<td>匹配前面不是exp的位置</td>
+</tr>
+<tr>
+<td>注释</td>
+<td>(?#comment)</td>
+<td>编写注释文档</td>
+</tr>
+</table>
+
+
+<p><strong><em>注：(?&lt; !exp)中&lt;和!之间没有空格，由于octopress和markdown的问题两者没法连接起来显示，故人为中间加了一个空格</em></strong></p>
+
+<p>&emsp;默认情况下，使用小括号指定的子表达式都会产生分组，并自动获取组号。其规则为：
+从左到右，分组的组号依次为0, 1, 2, &hellip; 引用时，只需使用\0, \1, \2, &hellip;就ok了。例如\b(?\d+)\0\b表示匹配重复的数字或单个数字(1,11,111,&hellip;)。如果像(?<word>exp)指定了组名，引用时需要前边添加\k。For example: \b(?<word>\d+)\k<word>\b</p>
+
+<p>&emsp;零断言匹配一栏下的各种代码，只改变文本的位置指针，不记录exp的值。例如：文本: Hello world! 产用(?&lt;=Hello )匹配的内容为world!,不包含Hello 。</p>
+
+<h2>7.贪婪与懒惰</h2>
+
+<p>&emsp;之前一直被?困扰，了解了贪婪匹配和懒惰匹配才算是略懂一二。贪婪，顾名思义就是尽量多的意思，相反，懒惰则是尽量少的意思。在正则表达式中，用?加以区分，默认是贪婪模式，当添加了?就是懒惰模式了。举一个简单的例子：文本：abcacb
+贪婪模式：a.*b 结果为：<code>abcacb</code>  懒惰模式：a.*?b  结果为：<code>ab</code> 和<code>acb</code>。在<strong>1.元字符</strong>最后添加?表示懒惰模式，即匹配尽量少的子符。</p>
+
+<h3 align="center">the end, not the end! it just the beginning of practising.</h3>
+
+
+<p>在此，向大家推荐一个参考学习网站</p>
+
+<p><a href="deerchao.net/tutorials/regex/regex.htm">正则表达式30分钟入门教程</a></p>
 ]]></content>
   </entry>
   
