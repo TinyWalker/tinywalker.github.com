@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
     <head>
         <meta charset="utf-8">
-            <title>即时标记 - Albert Blog</title>
+            <title>图 - Albert Blog</title>
             <meta name="author" content="Albert">
 
                 
-                <meta name="description" content="
-">
+                <meta name="description" content="&emsp;在旅游和搭建干线的时候，我们经常遇到求两点之间的最小距离的问题。做出一个合理的规划，既能简单的实现我们的目标，又能减少大量的时间和money。不错，图中最短路径就是针对这些问题的。还等什么，让我们看看图的神奇吧。。。 一.基本概念 1.图 图（Graph） &hellip;">
                     
 
                         <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@
                                 <meta name="viewport" content="width=device-width, initial-scale=1">
 
                                     
-                                    <link rel="canonical" href="http://Albert0010.github.io/blog/2013/08/16/title">
+                                    <link rel="canonical" href="http://Albert0010.github.io/blog/2013/08/29/title">
                                         <link href="/favicon.png" rel="icon">
                                             <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
                                                 <link href="/atom.xml" rel="alternate" title="Albert Blog" type="application/atom+xml">
@@ -73,7 +72,7 @@
   
   <header>
     
-      <h1 class="entry-title">即时标记</h1>
+      <h1 class="entry-title">图</h1>
     
     
       <p class="meta">
@@ -89,14 +88,114 @@
   
 
 
-<time datetime="2013-08-16T14:13:00+08:00" pubdate data-updated="true">Aug 16<span>th</span>, 2013</time>
+<time datetime="2013-08-29T13:29:00+08:00" pubdate data-updated="true">Aug 29<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content">
+<div class="entry-content"><p>&emsp;在旅游和搭建干线的时候，我们经常遇到求两点之间的最小距离的问题。做出一个合理的规划，既能简单的实现我们的目标，又能减少大量的时间和money。不错，图中最短路径就是针对这些问题的。还等什么，让我们看看图的神奇吧。。。</p>
+
+<!--more-->
+
+
+<h2>一.基本概念</h2>
+
+<h3>1.图</h3>
+
+<p>图（Graph）是由顶点的有穷非空集合和顶点之间的边的集合组成，表示为：G(V,E)。其中G表示一个图，V表示顶点的集合，E表示边的集合。其中无向图的边用（）表示，有向图的边用&lt;>表示</p>
+
+<h3>2.简单图</h3>
+
+<p>若图中不出现顶点到其自身的边，且同一条边不重复出现，称这样的图为简单图。</p>
+
+<h3>3.无向完全图</h3>
+
+<p>在无向图中，若任意两个顶点之间都存在一条边，则称此图为无向完全图。</p>
+
+<h3>4.有向完全图</h3>
+
+<p>在有向图中，若任意两个顶点之间都存在一对方向相反的边，则称此图为有向完全图。</p>
+
+<h3>5.路径的长度</h3>
+
+<p>路径的长度是指路径上的边（无向图）或弧（有向图）的个数。</p>
+
+<h3>6.简单路径</h3>
+
+<p>序列中的顶点不重复的路径叫做简单路径</p>
+
+<h3>7.简单回路（简单环）</h3>
+
+<p>除第一个顶点和最后一个顶点外，其他的顶点都不重复的回路叫做简单回路（简单环）</p>
+
+<h3>8.连通图</h3>
+
+<p>任意两个顶点都连通的图叫做连通图</p>
+
+<h3>9.连通分量</h3>
+
+<p>无向图中的极大连通子图称为连通分量。 强调几点：</p>
+
+<p>.无向图</p>
+
+<p>.子图且子图是连通的</p>
+
+<p>.子图中含有的顶点数是最大的</p>
+
+<h3>10.强连通图</h3>
+
+<p>在有向图中，如果对于任意一对顶点v<sub>i</sub>,v<sub>j</sub>,既存在v<sub>i</sub>到v<sub>j</sub>的路径，也存在v<sub>j</sub>到v<sub>i</sub>的路径，则称此图为强连通图</p>
+
+<h3>11.强连通分量</h3>
+
+<p>有向图的极大连通子图称为强连通分量</p>
+
+<h2>小结</h2>
+
+<p><code>任意两个顶点连通的图，称为连通图。有向则称为强连通图。在所有子图中，若子图极大连通，则称为连通分量。有向则称强连通分量</code></p>
+
+<h3>12.生成树</h3>
+
+<p>无向图中连通且n个顶点n-1条边叫生成树。有向图中一顶点的入度为0其余顶点的入度为1的叫做有向树。一个有向图由若干棵有向树构成<strong>生成森林</strong></p>
+
+<h2>二.图的存储方式</h2>
+
+<p>&emsp;由于图的结构复杂，一般的顺序存储方式无法表示。前辈们总结了主要五种不同的表示方法。分别如下：</p>
+
+<h3>邻接矩阵法</h3>
+
+<p>此方法主要思路是将单个顶点的内容和顶点之间的联系独立存储。其中用一个一维数组来存储顶点的内容。用一个二维数组来存储顶点之间的联系（即邻接矩阵）</p>
+
+<p><strong>Code</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="k">typedef</span> <span class="kt">char</span> <span class="n">VertexType</span>  <span class="c1">//define the vertex type</span>
+</span><span class='line'><span class="k">typedef</span> <span class="kt">int</span> <span class="n">EdgeType</span>     <span class="c1">//define the value of edge</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">#define MAXVEX 100      </span><span class="c1">//define the max vertex number</span>
+</span><span class='line'><span class="cp">#define INFINITY 65536  </span><span class="c1">//set the 65536 indicates the infinity </span>
+</span><span class='line'>
+</span><span class='line'><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">VertexType</span>  <span class="n">vexs</span><span class="p">[</span><span class="n">MAXVEX</span><span class="p">];</span>
+</span><span class='line'>    <span class="n">EdgeType</span> <span class="n">edge</span><span class="p">[</span><span class="n">MAXVEX</span><span class="p">][</span><span class="n">MAXVEX</span><span class="p">];</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">numVertexes</span><span class="p">,</span> <span class="n">numEdges</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span><span class="n">MGraph</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
 </div>
 
 
@@ -119,12 +218,12 @@
   
 
 
-<time datetime="2013-08-16T14:13:00+08:00" pubdate data-updated="true">Aug 16<span>th</span>, 2013</time>
+<time datetime="2013-08-29T13:29:00+08:00" pubdate data-updated="true">Aug 29<span>th</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/python/'>Python</a>
+    <a class='category' href='/blog/categories/data-structure/'>Data Structure</a>
   
 </span>
 
@@ -160,10 +259,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/08/13/title/" title="Previous Post: 过滤器设计">&laquo; 过滤器设计</a>
+        <a class="basic-alignment left" href="/blog/2013/08/21/title/" title="Previous Post: 正则表达式">&laquo; 正则表达式</a>
       
       
-        <a class="basic-alignment right" href="/blog/2013/08/17/title/" title="Next Post: 树">树 &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2013/09/03/title/" title="Next Post: C++ 重载解析原则">C++ 重载解析原则 &raquo;</a>
       
     </p>
   </footer>
@@ -241,8 +340,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://Albert0010.github.io/blog/2013/08/16/title/';
-        var disqus_url = 'http://Albert0010.github.io/blog/2013/08/16/title/';
+        var disqus_identifier = 'http://Albert0010.github.io/blog/2013/08/29/title/';
+        var disqus_url = 'http://Albert0010.github.io/blog/2013/08/29/title/';
         var disqus_script = 'embed.js';
       
     (function () {

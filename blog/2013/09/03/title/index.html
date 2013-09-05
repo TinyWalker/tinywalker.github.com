@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
     <head>
         <meta charset="utf-8">
-            <title>即时标记 - Albert Blog</title>
+            <title>C++ 重载解析原则 - Albert Blog</title>
             <meta name="author" content="Albert">
 
                 
-                <meta name="description" content="
+                <meta name="description" content="&emsp;重载解析寻找最匹配函数方法 如果只有一个这样的函数，则选择它。如果存在多个这个的函数，其中只有一个是非模板函数，则选择它。如果存在多个函数，且都是模板函数，但其中有一个比其他更具体，则选择它。如果有多个合适的非模板函数或者模板函数，则不能确定选择哪一个，发生错误，这是不允许的。
 ">
                     
 
@@ -19,7 +19,7 @@
                                 <meta name="viewport" content="width=device-width, initial-scale=1">
 
                                     
-                                    <link rel="canonical" href="http://Albert0010.github.io/blog/2013/08/16/title">
+                                    <link rel="canonical" href="http://Albert0010.github.io/blog/2013/09/03/title">
                                         <link href="/favicon.png" rel="icon">
                                             <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
                                                 <link href="/atom.xml" rel="alternate" title="Albert Blog" type="application/atom+xml">
@@ -73,7 +73,7 @@
   
   <header>
     
-      <h1 class="entry-title">即时标记</h1>
+      <h1 class="entry-title">C++ 重载解析原则</h1>
     
     
       <p class="meta">
@@ -89,14 +89,19 @@
   
 
 
-<time datetime="2013-08-16T14:13:00+08:00" pubdate data-updated="true">Aug 16<span>th</span>, 2013</time>
+<time datetime="2013-09-03T17:22:00+08:00" pubdate data-updated="true">Sep 3<span>rd</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content">
+<div class="entry-content"><p>&emsp;重载解析寻找最匹配函数方法</p>
+
+<!--more-->
+
+
+<p>如果只有一个这样的函数，则选择它。如果存在多个这个的函数，其中只有一个是非模板函数，则选择它。如果存在多个函数，且都是模板函数，但其中有一个比其他更具体，则选择它。如果有多个合适的非模板函数或者模板函数，则不能确定选择哪一个，发生错误，这是不允许的。</p>
 </div>
 
 
@@ -119,14 +124,8 @@
   
 
 
-<time datetime="2013-08-16T14:13:00+08:00" pubdate data-updated="true">Aug 16<span>th</span>, 2013</time>
+<time datetime="2013-09-03T17:22:00+08:00" pubdate data-updated="true">Sep 3<span>rd</span>, 2013</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/python/'>Python</a>
-  
-</span>
 
 
     </p>
@@ -160,10 +159,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/08/13/title/" title="Previous Post: 过滤器设计">&laquo; 过滤器设计</a>
+        <a class="basic-alignment left" href="/blog/2013/08/29/title/" title="Previous Post: 图">&laquo; 图</a>
       
       
-        <a class="basic-alignment right" href="/blog/2013/08/17/title/" title="Next Post: 树">树 &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2013/09/05/android/" title="Next Post: Android">Android &raquo;</a>
       
     </p>
   </footer>
@@ -241,8 +240,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://Albert0010.github.io/blog/2013/08/16/title/';
-        var disqus_url = 'http://Albert0010.github.io/blog/2013/08/16/title/';
+        var disqus_identifier = 'http://Albert0010.github.io/blog/2013/09/03/title/';
+        var disqus_url = 'http://Albert0010.github.io/blog/2013/09/03/title/';
         var disqus_script = 'embed.js';
       
     (function () {

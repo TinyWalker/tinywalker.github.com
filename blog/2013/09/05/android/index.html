@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
     <head>
         <meta charset="utf-8">
-            <title>即时标记 - Albert Blog</title>
+            <title>Android - Albert Blog</title>
             <meta name="author" content="Albert">
 
                 
-                <meta name="description" content="
-">
+                <meta name="description" content="&emsp;This is my first day learning android, 简单写写android开发环境搭建,个人比较喜欢linux，故讲讲linux下android环境的搭建的方法和一些遇到的问题。。。 &emsp;以ubuntu 12.04 为例： step1 : &hellip;">
                     
 
                         <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@
                                 <meta name="viewport" content="width=device-width, initial-scale=1">
 
                                     
-                                    <link rel="canonical" href="http://Albert0010.github.io/blog/2013/08/16/title">
+                                    <link rel="canonical" href="http://Albert0010.github.io/blog/2013/09/05/android">
                                         <link href="/favicon.png" rel="icon">
                                             <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
                                                 <link href="/atom.xml" rel="alternate" title="Albert Blog" type="application/atom+xml">
@@ -73,7 +72,7 @@
   
   <header>
     
-      <h1 class="entry-title">即时标记</h1>
+      <h1 class="entry-title">Android</h1>
     
     
       <p class="meta">
@@ -89,14 +88,47 @@
   
 
 
-<time datetime="2013-08-16T14:13:00+08:00" pubdate data-updated="true">Aug 16<span>th</span>, 2013</time>
+<time datetime="2013-09-05T20:13:00+08:00" pubdate data-updated="true">Sep 5<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content">
+<div class="entry-content"><p>&emsp;This is my first day learning android, 简单写写android开发环境搭建,个人比较喜欢linux，故讲讲linux下android环境的搭建的方法和一些遇到的问题。。。</p>
+
+<!--more-->
+
+
+<p>&emsp;以ubuntu 12.04 为例：</p>
+
+<p><strong>step1 : install java environment and eclipse, just a simple command :</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ sudo apt-get install eclipse-jdt</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>step2 : install ADT package :</strong></p>
+
+<p>&emsp; open the eclipse and go to Help, click the <code>Install New Software</code> button,then you will see the follow window :</p>
+
+<p><img src="/images/eclipse.png" width="800" height="280" title="image" alt="image"></p>
+
+<p>&emsp;click the the <code>add</code> button, and set a name follow your love, the location should be set to <code>http://dl-ssl.google.com/android/eclipse/</code>, most of us will be forced to stop with <code>pending</code> table because of the google is blocked. Just run the follow command as root,and you will get a big surprise.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># echo "74.125.237.1 dl-ssl.google.com" &gt;&gt; /etc/hosts </span></code></pre></td></tr></table></div></figure>
+
+
+<p>restart the eclipse, and the step2 will be responsed.</p>
+
+<p><strong>step3, install the SDK package</strong></p>
+
+<p>&emsp;Go to the <code>Window -&gt; Preferences</code> and locate SDK package, then use the SDK Manager to install the SDK package you need.</p>
+
+<p>&emsp;Now, the android develop environment has been builded, Just start to write your programs. Happy beginning!!!</p>
+
+<blockquote><p>when use the ubuntu 12.04 64-bit system, the AVD may not work, just rename the libOpengRender.so to another name.</p></blockquote>
 </div>
 
 
@@ -119,12 +151,12 @@
   
 
 
-<time datetime="2013-08-16T14:13:00+08:00" pubdate data-updated="true">Aug 16<span>th</span>, 2013</time>
+<time datetime="2013-09-05T20:13:00+08:00" pubdate data-updated="true">Sep 5<span>th</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/python/'>Python</a>
+    <a class='category' href='/blog/categories/android/'>Android</a>
   
 </span>
 
@@ -160,10 +192,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/08/13/title/" title="Previous Post: 过滤器设计">&laquo; 过滤器设计</a>
+        <a class="basic-alignment left" href="/blog/2013/09/03/title/" title="Previous Post: C++ 重载解析原则">&laquo; C++ 重载解析原则</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/08/17/title/" title="Next Post: 树">树 &raquo;</a>
       
     </p>
   </footer>
@@ -241,8 +271,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://Albert0010.github.io/blog/2013/08/16/title/';
-        var disqus_url = 'http://Albert0010.github.io/blog/2013/08/16/title/';
+        var disqus_identifier = 'http://Albert0010.github.io/blog/2013/09/05/android/';
+        var disqus_url = 'http://Albert0010.github.io/blog/2013/09/05/android/';
         var disqus_script = 'embed.js';
       
     (function () {

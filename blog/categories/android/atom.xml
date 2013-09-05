@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Android | Albert Blog]]></title>
+  <link href="http://Albert0010.github.io/blog/categories/android/atom.xml" rel="self"/>
+  <link href="http://Albert0010.github.io/"/>
+  <updated>2013-09-06T00:23:12+08:00</updated>
+  <id>http://Albert0010.github.io/</id>
+  <author>
+    <name><![CDATA[Albert]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Android]]></title>
+    <link href="http://Albert0010.github.io/blog/2013/09/05/android/"/>
+    <updated>2013-09-05T20:13:00+08:00</updated>
+    <id>http://Albert0010.github.io/blog/2013/09/05/android</id>
+    <content type="html"><![CDATA[<p>&emsp;This is my first day learning android, 简单写写android开发环境搭建,个人比较喜欢linux，故讲讲linux下android环境的搭建的方法和一些遇到的问题。。。</p>
+
+<!--more-->
+
+
+<p>&emsp;以ubuntu 12.04 为例：</p>
+
+<p><strong>step1 : install java environment and eclipse, just a simple command :</strong></p>
+
+<p>```</p>
+
+<pre><code>$ sudo apt-get install eclipse-jdt
+</code></pre>
+
+<p>```</p>
+
+<p><strong>step2 : install ADT package :</strong></p>
+
+<p>&emsp; open the eclipse and go to Help, click the <code>Install New Software</code> button,then you will see the follow window :</p>
+
+<p><img src="/images/eclipse.png" width="800" height="280" title="&lsquo;image&rsquo; &lsquo;image&rsquo;" ></p>
+
+<p>&emsp;click the the <code>add</code> button, and set a name follow your love, the location should be set to <code>http://dl-ssl.google.com/android/eclipse/</code>, most of us will be forced to stop with <code>pending</code> table because of the google is blocked. Just run the follow command as root,and you will get a big surprise.</p>
+
+<p>```</p>
+
+<h1>echo &ldquo;74.125.237.1 dl-ssl.google.com&rdquo; >> /etc/hosts</h1>
+
+<p>```</p>
+
+<p>restart the eclipse, and the step2 will be responsed.</p>
+
+<p><strong>step3, install the SDK package</strong></p>
+
+<p>&emsp;Go to the <code>Window -&gt; Preferences</code> and locate SDK package, then use the SDK Manager to install the SDK package you need.</p>
+
+<p>&emsp;Now, the android develop environment has been builded, Just start to write your programs. Happy beginning!!!</p>
+
+<blockquote><p>when use the ubuntu 12.04 64-bit system, the AVD may not work, just rename the libOpengRender.so to another name.</p></blockquote>
+]]></content>
+  </entry>
+  
+</feed>

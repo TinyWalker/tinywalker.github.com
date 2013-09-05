@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Data Structure | Albert Blog]]></title>
   <link href="http://Albert0010.github.io/blog/categories/data-structure/atom.xml" rel="self"/>
   <link href="http://Albert0010.github.io/"/>
-  <updated>2013-08-23T20:40:20+08:00</updated>
+  <updated>2013-09-06T00:23:12+08:00</updated>
   <id>http://Albert0010.github.io/</id>
   <author>
     <name><![CDATA[Albert]]></name>
@@ -12,6 +12,107 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[图]]></title>
+    <link href="http://Albert0010.github.io/blog/2013/08/29/title/"/>
+    <updated>2013-08-29T13:29:00+08:00</updated>
+    <id>http://Albert0010.github.io/blog/2013/08/29/title</id>
+    <content type="html"><![CDATA[<p>&emsp;在旅游和搭建干线的时候，我们经常遇到求两点之间的最小距离的问题。做出一个合理的规划，既能简单的实现我们的目标，又能减少大量的时间和money。不错，图中最短路径就是针对这些问题的。还等什么，让我们看看图的神奇吧。。。</p>
+
+<!--more-->
+
+
+<h2>一.基本概念</h2>
+
+<h3>1.图</h3>
+
+<p>图（Graph）是由顶点的有穷非空集合和顶点之间的边的集合组成，表示为：G(V,E)。其中G表示一个图，V表示顶点的集合，E表示边的集合。其中无向图的边用（）表示，有向图的边用&lt;>表示</p>
+
+<h3>2.简单图</h3>
+
+<p>若图中不出现顶点到其自身的边，且同一条边不重复出现，称这样的图为简单图。</p>
+
+<h3>3.无向完全图</h3>
+
+<p>在无向图中，若任意两个顶点之间都存在一条边，则称此图为无向完全图。</p>
+
+<h3>4.有向完全图</h3>
+
+<p>在有向图中，若任意两个顶点之间都存在一对方向相反的边，则称此图为有向完全图。</p>
+
+<h3>5.路径的长度</h3>
+
+<p>路径的长度是指路径上的边（无向图）或弧（有向图）的个数。</p>
+
+<h3>6.简单路径</h3>
+
+<p>序列中的顶点不重复的路径叫做简单路径</p>
+
+<h3>7.简单回路（简单环）</h3>
+
+<p>除第一个顶点和最后一个顶点外，其他的顶点都不重复的回路叫做简单回路（简单环）</p>
+
+<h3>8.连通图</h3>
+
+<p>任意两个顶点都连通的图叫做连通图</p>
+
+<h3>9.连通分量</h3>
+
+<p>无向图中的极大连通子图称为连通分量。 强调几点：</p>
+
+<p>.无向图</p>
+
+<p>.子图且子图是连通的</p>
+
+<p>.子图中含有的顶点数是最大的</p>
+
+<h3>10.强连通图</h3>
+
+<p>在有向图中，如果对于任意一对顶点v<sub>i</sub>,v<sub>j</sub>,既存在v<sub>i</sub>到v<sub>j</sub>的路径，也存在v<sub>j</sub>到v<sub>i</sub>的路径，则称此图为强连通图</p>
+
+<h3>11.强连通分量</h3>
+
+<p>有向图的极大连通子图称为强连通分量</p>
+
+<h2>小结</h2>
+
+<p><code>任意两个顶点连通的图，称为连通图。有向则称为强连通图。在所有子图中，若子图极大连通，则称为连通分量。有向则称强连通分量</code></p>
+
+<h3>12.生成树</h3>
+
+<p>无向图中连通且n个顶点n-1条边叫生成树。有向图中一顶点的入度为0其余顶点的入度为1的叫做有向树。一个有向图由若干棵有向树构成<strong>生成森林</strong></p>
+
+<h2>二.图的存储方式</h2>
+
+<p>&emsp;由于图的结构复杂，一般的顺序存储方式无法表示。前辈们总结了主要五种不同的表示方法。分别如下：</p>
+
+<h3>邻接矩阵法</h3>
+
+<p>此方法主要思路是将单个顶点的内容和顶点之间的联系独立存储。其中用一个一维数组来存储顶点的内容。用一个二维数组来存储顶点之间的联系（即邻接矩阵）</p>
+
+<p><strong>Code</strong></p>
+
+<p>```c
+typedef char VertexType  //define the vertex type
+typedef int EdgeType     //define the value of edge</p>
+
+<h1>define MAXVEX 100      //define the max vertex number</h1>
+
+<h1>define INFINITY 65536  //set the 65536 indicates the infinity</h1>
+
+<p>typedef struct {</p>
+
+<pre><code>VertexType  vexs[MAXVEX];
+EdgeType edge[MAXVEX][MAXVEX];
+int numVertexes, numEdges;
+</code></pre>
+
+<p>}MGraph;</p>
+
+<p>```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[树]]></title>
