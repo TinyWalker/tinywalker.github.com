@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://Albert0010.github.io/atom.xml" rel="self"/>
   <link href="http://Albert0010.github.io/"/>
-  <updated>2014-02-12T18:52:21+08:00</updated>
+  <updated>2014-02-22T14:09:46+08:00</updated>
   <id>http://Albert0010.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,6 +12,162 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[python 和pygame 游戏开发(一)]]></title>
+    <link href="http://Albert0010.github.io/blog/2014/02/21/pygame/"/>
+    <updated>2014-02-21T09:38:00+08:00</updated>
+    <id>http://Albert0010.github.io/blog/2014/02/21/pygame</id>
+    <content type="html"><![CDATA[<p>&emsp;重装系统后，octopress博客系统就被搁置一边了,今天重新整理了下,嘿嘿,又可以再次使用了. 最近看了一些pygame的知识,把有趣的东西整理下,供大家一起学习.
+学习pygame时,自己对python也是一知半解,遇到问题只能网上多搜索些,所以推荐大家学习前还是先认真学习下python了,当然边学边实践永远是最好的. 个人觉得&lt;&lt;可爱的python>>系列,&lt;&lt;python核心编程>>都不错.</p>
+
+<h2>1.程序框架</h2>
+
+<p>&emsp;首先说下基本的游戏开发框架,和大多数游戏开发一样,pygame的框架基本如下:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>初始化(init)
+</span><span class='line'>
+</span><span class='line'>主循环(while True) 
+</span><span class='line'>    事件处理(event) 
+</span><span class='line'>    逻辑层(logical)
+</span><span class='line'>    渲染层(render)
+</span><span class='line'>
+</span><span class='line'>释放资源(release)  </span></code></pre></td></tr></table></div></figure>
+
+
+<h2>2.pygame模块</h2>
+
+<p>游戏开发主要是声音,图像的处理,pygame的出现使用这些处理变得easy了,我们注重逻辑就ok了.下面是一些pygame的模块及功能简要描述.</p>
+
+<table>
+<thead>
+<tr>
+<th>模块名</th>
+<th> 功能 </th>
+<th> 备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pygame</td>
+<td>管理所有模块(初始化,异常等)</td>
+<td> the top level pygame package</td>
+</tr>
+<tr>
+<td>pygame.cdrom</td>
+<td>访问光驱</td>
+<td></td>
+</tr>
+<tr>
+<td>pygame.cursors</td>
+<td>加载光标</td>
+<td></td>
+</tr>
+<tr>
+<td>pygame.display</td>
+<td>访问显示屏</td>
+<td></td>
+</tr>
+<tr>
+<td>pygame.draw </td>
+<td> 绘制几何图形</td>
+<td></td>
+</tr>
+<tr>
+<td>pygame.event </td>
+<td> 事件处理</td>
+<td></td>
+</tr>
+<tr>
+<td>pygame.font </td>
+<td> 加载字体</td>
+<td></td>
+</tr>
+<tr>
+<td>pygame.image </td>
+<td> 图片处理</td>
+<td></td>
+</tr>
+<tr>
+<td>pygame.joystick</td>
+<td> 手柄处理</td>
+<td> 目前还没有使用过</td>
+</tr>
+<tr>
+<td>pygame.key </td>
+<td> 读取键盘按键</td>
+<td></td>
+</tr>
+<tr>
+<td>pygame.mixer</td>
+<td>声音</td>
+<td>ogg和wma等</td>
+</tr>
+<tr>
+<td>pygame.mover</td>
+<td>播放视屏</td>
+<td></td>
+</tr>
+<tr>
+<td>pygame.music</td>
+<td>播放音频</td>
+<td></td>
+</tr>
+<tr>
+<td>pygame.overlay</td>
+<td>访问高级视屏叠加</td>
+<td>目前不了解</td>
+</tr>
+<tr>
+<td>pygame.rect </td>
+<td> 矩形区域管理</td>
+<td></td>
+</tr>
+<tr>
+<td>pygame.sndarray</td>
+<td>操作声音数据</td>
+<td>看起来就觉得amazing</td>
+</tr>
+<tr>
+<td>pygame.sprite</td>
+<td>操作移动图像</td>
+<td></td>
+</tr>
+<tr>
+<td>pygame.surface</td>
+<td>管理图像和屏幕</td>
+<td></td>
+</tr>
+<tr>
+<td>pygame.surfarray</td>
+<td>管理点阵图像数据</td>
+<td></td>
+</tr>
+<tr>
+<td>pygame.time</td>
+<td>管理时间和帧信息</td>
+<td></td>
+</tr>
+<tr>
+<td>pygame.transform</td>
+<td> 缩放和移动图像</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<p>先些这么多吧,分享下我学习的网站<a href="http://simple-is-better.com/news/361">用Python和Pygame写游戏</a>,一起努力.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[正则表达式]]></title>
