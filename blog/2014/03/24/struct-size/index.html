@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>静谧小屋</title>
+  <title>sizeof usage - 静谧小屋</title>
   <meta name="author" content="Albert">
 
   
@@ -24,7 +24,7 @@ struct foo { char c; int i; }; &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Albert0010.github.io">
+  <link rel="canonical" href="http://Albert0010.github.io/blog/2014/03/24/struct-size">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="静谧小屋" type="application/atom+xml">
@@ -69,15 +69,12 @@ struct foo { char c; int i; }; &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/03/24/struct-size/">Sizeof Usage</a></h1>
+      <h1 class="entry-title">Sizeof Usage</h1>
     
     
       <p class="meta">
@@ -100,7 +97,7 @@ struct foo { char c; int i; }; &hellip;">
   </header>
 
 
-  <div class="entry-content"><h2>一.Situation</h2>
+<div class="entry-content"><h2>一.Situation</h2>
 
 <p>&emsp; 今天看Simon Tatham的&lt;&lt;The Descent to C>>时,发现memory layout 自己还是不太清楚,特别是结构体部分.例如:</p>
 
@@ -265,86 +262,16 @@ struct foo { char c; int i; }; &hellip;">
 
 <p><strong><em>3.如果自定义对齐方式,则首先算出结构体的偏移量,然后满足上面两个条件</em></strong></p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/21/pygame/">Python 和pygame 游戏开发(一)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">Albert</span></span>
 
-<time datetime="2014-02-21T09:38:00+08:00" pubdate data-updated="true">Feb 21<span>st</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>&emsp;重装系统后，octopress博客系统就被搁置一边了,今天重新整理了下,嘿嘿,又可以再次使用了. 最近看了一些pygame的知识,把有趣的东西整理下,供大家一起学习.
-学习pygame时,自己对python也是一知半解,遇到问题只能网上多搜索些,所以推荐大家学习前还是先认真学习下python了,当然边学边实践永远是最好的. 个人觉得&lt;&lt;可爱的python>>系列,&lt;&lt;python核心编程>>都不错.</p>
-
-<h2>1.程序框架</h2>
-
-<p>&emsp;首先说下基本的游戏开发框架,和大多数游戏开发一样,pygame的框架基本如下:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>初始化(init)
-</span><span class='line'>
-</span><span class='line'>主循环(while True) 
-</span><span class='line'>    事件处理(event) 
-</span><span class='line'>    逻辑层(logical)
-</span><span class='line'>    渲染层(render)
-</span><span class='line'>
-</span><span class='line'>释放资源(release)  </span></code></pre></td></tr></table></div></figure>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/02/21/pygame/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/08/21/title/">正则表达式</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -356,165 +283,44 @@ struct foo { char c; int i; }; &hellip;">
   
 
 
-<time datetime="2013-08-21T13:14:00+08:00" pubdate data-updated="true">Aug 21<span>st</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>&emsp; 字符是计算机处理文字的最基本单位，在查找文件时，我们一般会使用<strong><em>通配符</em></strong>(wildcard),例如*和?等。和通配符类似，正则表达式也是用来模式匹配的，而且功能更加强大。是模式匹配中，正则表达式可谓是带头大哥。各种语言都有支持，如python的re包，awk等。linux虽然略有不同，但都是源于其基本的原则，改变只是为了和posix兼容罢了。还等什么，快来和这位大哥会晤了。。。。。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/08/21/title/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
+<time datetime="2014-03-24T10:17:00+08:00" pubdate data-updated="true">Mar 24<span>th</span>, 2014</time>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/08/17/title/">树</a></h1>
-    
-    
-      <p class="meta">
-        
 
-
-
-
-
-
-
-
+<span class="categories">
   
+    <a class='category' href='/blog/categories/c-language/'>c language</a>
+  
+</span>
 
 
-<time datetime="2013-08-17T10:39:00+08:00" pubdate data-updated="true">Aug 17<span>th</span>, 2013</time>
-        
-      </p>
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><h2>基本概念</h2>
-
-<p>1.斜树</p>
-
-<blockquote><p>所有的结点都只有左子树的二叉树叫左斜树。所有的结点都只有右子树的二叉树叫做右斜树。两者都称谓斜树。</p></blockquote>
-
-<p>2.满二叉树</p>
-
-<blockquote><p>在一棵二叉树中，所有的结点都有左子树和右子树，并且所有的叶子结点都在都一层上,这样的树叫满二叉树。 哈哈，只可惜此事古难全&hellip;</p></blockquote>
-
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://Albert0010.github.io/blog/2014/03/24/struct-size/" data-via="" data-counturl="http://Albert0010.github.io/blog/2014/03/24/struct-size/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/08/17/title/">Read on &rarr;</a>
-    </footer>
-  
 
-
-    </article>
-  
-  
-    <article>
+    
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/08/16/title/">即时标记</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-16T14:13:00+08:00" pubdate data-updated="true">Aug 16<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content">
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+        <a class="basic-alignment left" href="/blog/2014/02/21/pygame/" title="Previous Post: python 和pygame 游戏开发(一)">&laquo; python 和pygame 游戏开发(一)</a>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/08/13/title/">过滤器设计</a></h1>
-    
-    
-      <p class="meta">
-        
+      
+    </p>
+  </footer>
+</article>
 
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-13T20:04:00+08:00" pubdate data-updated="true">Aug 13<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><blockquote><p>高层模块不应该依赖于低层模块。二者都应该依赖于抽象。抽象不应该依赖于细节。细节应该依赖于抽象。</p></blockquote>
-
-<p>test for reinstall system</p>
-
-<h1><font color = green size = 7 face = "@幼圆"><marquee bgcolor=#ccff99 behavior = alternate>I am still learning</marquee> </font></h1>
-
-
-
-
-<script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script>
-
-
-<p></p>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  
-  
+  </section>
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -556,6 +362,7 @@ struct foo { char c; int i; }; &hellip;">
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -570,7 +377,10 @@ struct foo { char c; int i; }; &hellip;">
       var disqus_shortname = 'Albert';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://Albert0010.github.io/blog/2014/03/24/struct-size/';
+        var disqus_url = 'http://Albert0010.github.io/blog/2014/03/24/struct-size/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
