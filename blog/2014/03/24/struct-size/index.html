@@ -122,11 +122,14 @@ struct foo { char c; int i; }; &hellip;">
 
 <p>为什么要填充字节呢?通过学习c关键字sizeof,让我们一起了解下struct的内存结构吧,let&rsquo;s start!</p>
 
-<h2>Task</h2>
+<!--more-->
+
+
+<h2>二.Task</h2>
 
 <p>通过学习sizeof的使用方法,了解c语言中struct的内存结构</p>
 
-<h2>Action</h2>
+<h2>三.Action</h2>
 
 <h3>1.Sizeof的定义及使用方法</h3>
 
@@ -252,7 +255,7 @@ struct foo { char c; int i; }; &hellip;">
 
 <p>故,上述结构体foo的偏移为:offset=min(sizeof(i), 2)=2, sizeof(struct foo) = 1 + 1 + 4 = 6; foo3的偏移量offset也为2, sizeof(struct foo3) = 1 +1 +6+1 +1 = 10</p>
 
-<h2>Result</h2>
+<h2>四.Result</h2>
 
 <p>结构体内存大小决定于结构体内部成员的最宽字节数,主要满足两点:</p>
 
